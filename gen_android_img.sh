@@ -16,8 +16,8 @@ function pt_info()
 }
 
 pt_info "This script is only for ANDROID."
-#./build.sh -p sun8iw7p1_android -b nanopi-h3 -m uboot
-#./build.sh -p sun8iw7p1_android -b nanopi-h3 -m kernel
+#./build.sh -p sun8iw7p1_android -b pcduino4-nano -m uboot
+#./build.sh -p sun8iw7p1_android -b pcduino4-nano kernel
 #WIRELESS_DIR=../../wireless/
 #[ -d ${WIRELESS_DIR} ] && (cd ${WIRELESS_DIR} && ./build.sh android)
 echo -e "2\n" | ./build.sh lunch
@@ -25,7 +25,7 @@ echo -e "2\n" | ./build.sh lunch
 cd ../android
 export PATH=/usr/lib/jvm/jdk1.6.0_45/bin:$PATH
 source ./build/envsetup.sh
-lunch nanopi_h3-eng
+lunch pcduino4-nano-eng
 extract-bsp
 if [ "x${1}" = "xboot.img"]; then
     make bootimage

@@ -86,7 +86,7 @@ case "$1" in
         rm -rf ${LICHEE_BR_OUT}
         ;;
     *)
-        if [ "x${LICHEE_PLATFORM}" = "xlinux" ] && [ "x${LICHEE_BOARD}" != "xnanopi-h3" ] ; then
+        if [ "x${LICHEE_PLATFORM}" = "xlinux" ] && [ "x${LICHEE_BOARD}" != "xpcduino4-nano" ] ; then
             build_buildroot
             export PATH=${LICHEE_BR_OUT}/external-toolchain/bin:$PATH
             build_external

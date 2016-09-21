@@ -638,10 +638,10 @@ function mkkernel()
 		elif [ "x$LIHCEE_BUILD_CMD" = "x" ] ; then
 			mk_info "use last time build config."
 		else
-            if [ "x${LICHEE_BOARD}" = "xnanopi-h3"  -a "x${LICHEE_PLATFORM}" = "xlinux" ] ; then
-            	mk_info "skip kernel clean for nanopi-h3 Linux system."
+            if [ "x${LICHEE_BOARD}" = "xpcduino4-nano"  -a "x${LICHEE_PLATFORM}" = "xlinux" ] ; then
+            	mk_info "skip kernel clean for pcduino4-nano Linux system."
             elif [ "x${LICHEE_BOARD}" = "x"  -a "x${LICHEE_PLATFORM}" = "xandroid" ] ; then
-			    mk_info "skip kernel clean for nanopi-h3 Android system."
+			    mk_info "skip kernel clean for pcduino4-nano Android system."
             else
             	(cd ${LICHEE_KERN_DIR} && [ -x ${build_script} ] && ./${build_script} "clean")
             fi
@@ -797,7 +797,7 @@ function mklichee()
 	mk_info "----------------------------------------"
 
 	check_env
-    if [ "x${LICHEE_BOARD}" = "xnanopi-h3" -a "x${LICHEE_PLATFORM}" = "xlinux" ] ; then                
+    if [ "x${LICHEE_BOARD}" = "xpcduino4-nano" -a "x${LICHEE_PLATFORM}" = "xlinux" ] ; then                
         mkkernel && mkuboot
         if [ -e rootfs.ext4 ]; then
             ln -s rootfs.ext4 out/sun8iw7p1/linux/common/rootfs.ext4
@@ -824,15 +824,15 @@ function mklichee()
 
 function mkclean()
 {
-    if [ "x${LICHEE_BOARD}" = "xnanopi-h3"  -a "x${LICHEE_PLATFORM}" = "xlinux" ] ; then
-        mk_info "clean for nanopi-h3 Linux system\033[0m\n"
+    if [ "x${LICHEE_BOARD}" = "xpcduino4-nano"  -a "x${LICHEE_PLATFORM}" = "xlinux" ] ; then
+        mk_info "clean for pcduino4-nano Linux system\033[0m\n"
         rm ./script -rf
         clkernel
         cluboot
         clbr
         rm ${LICHEE_TOOLS_DIR}/pack/*.img -fv
     elif [ "x${LICHEE_BOARD}" = "x"  -a "x${LICHEE_PLATFORM}" = "xandroid" ] ; then
-        mk_info "clean for nanopi-h3 Android system\033[0m\n"
+        mk_info "clean for pcduino4-nano Android system\033[0m\n"
         clkernel
         cluboot
         clbr
