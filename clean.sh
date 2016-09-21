@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./build.sh -p sun8iw7p1_android -b nanopi-h3 -m clean
+./build.sh -p sun8iw7p1_android -b pcduino4-nano -m clean

@@ -55,7 +55,7 @@ done
 case "$1" in
 clean)
 	cd u-boot-2011.09/
-	if [ "x$LICHEE_BOARD" = "xnanopi-h3" ] ; then                
+	if [ "x$LICHEE_BOARD" = "xpcduino4-nano" ] ; then                
 		make distclean
 	fi
 	cd - 1>/dev/null
